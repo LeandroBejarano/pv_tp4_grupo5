@@ -1,8 +1,9 @@
 import Header from "./Header";
 import Titulo from "./Titulo";
 function ProductForm (props){
-    const [producto, setProducto] = props.producto
-    const [productos, setProductos] = props.productos
+    const setModo = props.setModo;
+    const [producto, setProducto] = props.producto;
+    const [productos, setProductos] = props.productos;
     const inputStyle={
         padding: '5px',
         borderRadius: '5px',
@@ -20,7 +21,7 @@ function ProductForm (props){
             producto.minprice=producto.price*(1-producto.disc/100);
             alert ('Producto agregado');
             setProductos([...productos,producto]);
-            setProducto({desc:'', disc:'', stock:'', price:''})
+            setProducto({desc:'', disc:'', stock:'', price:''});
         }
     }
 
@@ -34,7 +35,8 @@ function ProductForm (props){
         <input style={inputStyle} type='number' value={producto.disc} placeholder='Descuento. Ej: 25' onChange={(e)=>setProducto({...producto, disc: e.target.value})}/>
         <input style={inputStyle} type='number' value={producto.stock} placeholder='Stock' onChange={(e)=>setProducto({...producto, stock: e.target.value})}/>
         <h1 ></h1>
-        <button onClick={addProducto} >Agregar Producto</button>
+        <button onClick={addProducto} >Agregar Producto</button> <br></br>
+        <button onClick={()=>setModo('list')}>Volver</button>
     </div>
     )
 }

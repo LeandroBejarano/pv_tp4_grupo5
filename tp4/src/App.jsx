@@ -19,7 +19,7 @@ function App() {
         <NavBar modo={[modo, setModo]}></NavBar>
         {(() => {
           switch (modo){
-            case 'new': return <ProductForm producto={[producto, setProducto]} productos={[productos, setProductos]}/>
+            case 'new': return <ProductForm setModo={setModo} producto={[producto, setProducto]} productos={[productos, setProductos]}/>
             default: return(
               <Header texto={'Gestión de productos'}/>
               )
