@@ -7,12 +7,16 @@ const styles ={
     }
 }
 function NavBar (props){
-    const [modo, setModo] = props.modo;
-
+    const [setModo] = props.modo;
+    const [setBuscar] = props.setBuscar;
     return(
         <nav style={styles.navBar}>
             <div ClassName={styles.horizontal}>
                 <button onClick={()=>setModo('new')}>Nuevo Producto</button>
+            </div>
+            <div>
+                <input placeholder='Buscar por ID...' type='text' onChange={(e)=>setBuscar(e.target.value)}/>
+                <button onClick={()=>setModo('buscar')}>Buscar producto</button>
             </div>
         </nav>
     )
