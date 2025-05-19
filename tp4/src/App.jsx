@@ -1,13 +1,23 @@
 import { useState } from 'react'
-import './App.css'
+import Titulo from './components/Titulo'
+import Header from './components/Header'
+import ProductForm from './components/ProductForm'
+import NavBar from './components/NavBar'
 
 function App() {
+  const [modo, setModo] = useState('list')
   return (
-    <>
-      <div>
-
-      </div>
-    </>
+    <div>
+        <NavBar modo={[modo, setModo]}></NavBar>
+        {(() => {
+          switch (modo){
+            case 'new': return <ProductForm></ProductForm>
+            default: return(
+              <Header texto={'Gestión de productos'}/>
+              )
+          }
+        })()}
+    </div>
   )
 }
 
