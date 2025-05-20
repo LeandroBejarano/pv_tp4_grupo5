@@ -16,7 +16,7 @@ function App() {
     stock: '',
     minprice: ''
   });
-  const [productos, setProductos] = useState(['']);
+  const [productos, setProductos] = useState([]);
   const [modo, setModo] = useState('list');
 
   return (
