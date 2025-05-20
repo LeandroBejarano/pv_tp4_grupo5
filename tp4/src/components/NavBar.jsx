@@ -1,25 +1,26 @@
-const styles ={
+const styles = {
     navBar: {
-        display:'flex',
+        display: 'flex',
         flexDirection: 'row',
-        alignItems:'center',
-        backgroundColor:'cyan'
+        alignItems: 'center',
+        backgroundColor: '#00A6A6'
     }
-}
-function NavBar (props){
+};
+
+function NavBar(props) {
     const [setModo] = props.modo;
     const [setBuscar] = props.setBuscar;
-    return(
+    return (
         <nav style={styles.navBar}>
             <div ClassName={styles.horizontal}>
-                <button onClick={()=>setModo('new')}>Nuevo Producto</button>
+                <button onClick={() => setModo('new')}>Nuevo Producto</button>
             </div>
             <div>
-                <input placeholder='Buscar por ID...' type='number' onChange={(e)=>setBuscar(e.target.value)}/>
-                <button onClick={()=>setModo('buscar')}>Buscar producto</button>
+                <input placeholder='Buscar por ID...' type='number' onChange={(e) => setBuscar(e.target.value)} />
+                <button onClick={() => setModo('buscar')}>Buscar producto</button>
             </div>
         </nav>
-    )
+    );
 }
 
 export default NavBar;

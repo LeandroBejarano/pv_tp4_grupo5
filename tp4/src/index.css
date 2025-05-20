@@ -1,7 +1,7 @@
 :root {
   font-family: 'Poppins', Arial, sans-serif;
-  background-color: #eeeeee;
-  color: #333;
+  background-color: #000000;
+  color: #ffffff;
 }
 
 .app-container {
@@ -14,7 +14,7 @@
 
 .sidebar {
   width: 25%;
-  background-color: #0077ff;
+  background-color: #00A6A6; 
   color: white;
   padding: 20px;
   border-radius: 10px;
@@ -27,7 +27,7 @@
   margin: 12px 0;
   padding: 12px;
   border: none;
-  background-color: #0054c4;
+  background-color: #028090;
   color: white;
   font-size: 1em;
   font-weight: bold;
@@ -37,13 +37,12 @@
 }
 
 .sidebar button:hover {
-  background-color: #003a80;
+  background-color: #025E73; 
 }
-
 
 .main-content {
   width: 75%;
-  background-color: #ff6240;
+  background-color: #5E6472; 
   color: white;
   padding: 25px;
   border-radius: 10px;
@@ -60,12 +59,12 @@ button {
   cursor: pointer;
   transition: all 0.3s ease-in-out;
   box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
-  background-color: #0077ff;
+  background-color: #00A6A6;
   color: white;
   border: none;
 }
 
 button:hover {
-  background-color: #0054c4;
+  background-color: #028090;
   transform: scale(1.05);
 }
