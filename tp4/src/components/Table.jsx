@@ -1,4 +1,4 @@
-function Table ({productos}){
+function Table ({productos, setModo, setProductoActual}){
     const style={
         width:'70%',
         borderCollapse:'collapse',
@@ -15,6 +15,9 @@ function Table ({productos}){
                 <th>Descuento</th>
                 <th>Precio final</th>
                 <th>Stock</th>
+                <th></th>
+                <th></th>
+                <th></th>
             </tr>
         </thead>
         <tbody>
@@ -26,6 +29,9 @@ function Table ({productos}){
                     <td>{prod.disc}%</td>
                     <td>{prod.minprice}$</td>
                     <td>{prod.stock} unidades</td>
+                    <td><a href='#' onClick={()=>{setModo('ver'); setProductoActual(prod);} }>Ver</a></td>
+                    <td><a href='#'>Editar</a></td>
+                    <td><a href='#'>Eliminar</a></td>
                 </tr>
             ))}
         </tbody>

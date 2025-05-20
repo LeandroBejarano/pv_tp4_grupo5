@@ -5,8 +5,10 @@ import NavBar from './components/NavBar'
 import SearchBar from './components/SearchBar'
 import './index.css';
 import ProductList from './components/ProductList'
+import ProductItem from './components/ProductItem'
 
 function App() {
+  const [productoActual, setProductoActual] = useState()
   const [buscar, setBuscar] = useState('');
   const [producto, setProducto] = useState({
     id: '',
@@ -30,10 +32,15 @@ function App() {
           switch (modo){
             case 'new': return <ProductForm setModo={setModo} producto={[producto, setProducto]} productos={[productos, setProductos]}/>
             case 'buscar': return <SearchBar setModo={setModo} buscar={buscar} productos={productos}/>
+            case 'ver': return (
+            <div>
+              {console.log("Producto seleccionado:", productoActual)}
+              <ProductItem setModo={setModo} producto={productoActual} />
+            </div>)
             default: return(
               <div>
                 <Header texto={'Lista de productos'}/>
-                <ProductList productos={productos}/>
+                <ProductList setModo={setModo} productos={productos} setProductoActual={setProductoActual}/>
               </div>
               )
           }

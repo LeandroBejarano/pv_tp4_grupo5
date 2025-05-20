@@ -8,7 +8,7 @@ function ProductList (props){
         {productos.length === 0 ? (
             <Error texto={'No hay productos registrados actualmente'} />    
         ) : (
-            <Table productos={productos}/>
+            <Table productos={productos} setModo={props.setModo} setProductoActual={props.setProductoActual} />
         )}
         </div>
     );
