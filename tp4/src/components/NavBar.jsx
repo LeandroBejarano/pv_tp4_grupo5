@@ -1,30 +1,22 @@
-import React from 'react';
-
-const styles = {
+const styles ={
     navBar: {
-        display: 'flex',
+        display:'flex',
         flexDirection: 'row',
-        alignItems: 'center',
-        backgroundColor: 'cyan',
-        padding: '10px',
-        gap: '20px'
-    },
-    horizontal: {
-        // definir estilo
+        alignItems:'center',
+        backgroundColor:'cyan'
     }
 }
-
-function NavBar(props) {
-    // Destructure setModo and setBuscar directly from props
-    const { setModo, setBuscar } = props;
-    return (
+function NavBar (props){
+    const [setModo] = props.modo;
+    const [setBuscar] = props.setBuscar;
+    return(
         <nav style={styles.navBar}>
-            <div className={styles.horizontal}> {}
-                <button onClick={() => setModo('new')}>Nuevo Producto</button>
+            <div ClassName={styles.horizontal}>
+                <button onClick={()=>setModo('new')}>Nuevo Producto</button>
             </div>
             <div>
-                <input placeholder='Buscar por ID...' type='number' onChange={(e) => setBuscar(e.target.value)}/>
-                <button onClick={() => setModo('buscar')}>Buscar producto</button>
+                <input placeholder='Buscar por ID...' type='number' onChange={(e)=>setBuscar(e.target.value)}/>
+                <button onClick={()=>setModo('buscar')}>Buscar producto</button>
             </div>
         </nav>
     )
