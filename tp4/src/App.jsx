@@ -6,7 +6,7 @@ import SearchBar from './components/SearchBar'
 import ProductList from './components/ProductList'
 
 function App() {
-  const [buscar, setBuscar] = useState (0);
+  const [buscar, setBuscar] = useState ('');
   const [producto, setProducto] = useState({
     id:'',
     desc:'',
