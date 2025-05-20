@@ -63,7 +63,6 @@ button {
   color: white;
   border: none;
 }
-
 button:hover {
   background-color: #028090;
   transform: scale(1.05);
