@@ -1,9 +1,9 @@
 import { useState } from 'react'
-import Titulo from './components/Titulo'
 import Header from './components/Header'
 import ProductForm from './components/ProductForm'
 import NavBar from './components/NavBar'
 import SearchBar from './components/SearchBar'
+import ProductList from './components/ProductList'
 
 function App() {
   const [buscar, setBuscar] = useState (0);
@@ -15,7 +15,7 @@ function App() {
     stock:'',
     minprice:'',
   });
-  const [productos, setProductos] = useState([''])
+  const [productos, setProductos] = useState([])
   const [modo, setModo] = useState('list')
   return (
     <div>
@@ -25,7 +25,10 @@ function App() {
             case 'new': return <ProductForm setModo={setModo} producto={[producto, setProducto]} productos={[productos, setProductos]}/>
             case 'buscar': return <SearchBar setModo={setModo} buscar={buscar} productos={productos}/>
             default: return(
-              <Header texto={'Gestión de productos'}/>
+              <div>
+                <Header texto={'Lista de productos'}/>
+                <ProductList productos={productos}/>
+              </div>
               )
           }
         })()}
