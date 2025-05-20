@@ -16,7 +16,7 @@ function NavBar(props) {
                 <button onClick={() => setModo('new')}>Nuevo Producto</button>
             </div>
             <div>
-                <input placeholder='Buscar por ID...' type='number' onChange={(e) => setBuscar(e.target.value)} />
+                <input placeholder='Buscar por descripción...' type='text' onChange={(e) => setBuscar(e.target.value)} />
                 <button onClick={() => setModo('buscar')}>Buscar producto</button>
             </div>
         </nav>
