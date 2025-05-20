@@ -6,13 +6,14 @@ import NavBar from './components/NavBar'
 import SearchBar from './components/SearchBar'
 
 function App() {
-  const [buscar, setBuscar] = useState ('');
+  const [buscar, setBuscar] = useState (0);
   const [producto, setProducto] = useState({
+    id:'',
     desc:'',
     price:'',
     disc:'',
     stock:'',
-    minprice:''
+    minprice:'',
   });
   const [productos, setProductos] = useState([''])
   const [modo, setModo] = useState('list')
