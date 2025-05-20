@@ -30,7 +30,6 @@ function App() {
           switch (modo){
             case 'new': return <ProductForm setModo={setModo} producto={[producto, setProducto]} productos={[productos, setProductos]}/>
             case 'buscar': return <SearchBar setModo={setModo} buscar={buscar} productos={productos}/>
-            default: return <Header texto={'Gestión de productos'} />;
             default: return(
               <div>
                 <Header texto={'Lista de productos'}/>
