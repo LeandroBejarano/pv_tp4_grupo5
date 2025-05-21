@@ -1,12 +1,16 @@
 import Header from "./Header";
 import Error from "./Error";
 import Section from "./Section";
+import {useMemo} from 'react';
 function SearchBar (props)
 {
     const buscar = props.buscar;
     const setModo = props.setModo;
     const productos = props.productos;
-    const filtrados = productos.filter(p=> buscar && p.desc.toLowerCase().includes(buscar.toLowerCase()));
+    const filtrados = useMemo (() => {
+        return productos.filter(p=> 
+            p.desc.toLowerCase().includes(buscar.toLowerCase()));
+    }, [productos, buscar]);
 
     return (
     <div>
