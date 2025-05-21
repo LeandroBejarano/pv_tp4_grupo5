@@ -32,6 +32,10 @@ function App() {
     setProductos(prev => prev.map(p => p.id === productoActualizado.id ? productoActualizado : p));
   }, [setProductos]);
 
+  const deleteProducto = useCallback((id) => {
+    setProductos(prev => prev.filter(p => p.id !== id));
+  }, []);
+
   useEffect(()=>{
     console.log('Se modifico el arreglo de productos:', productos);
   }, [productos])
@@ -58,7 +62,7 @@ function App() {
             default: return(
               <div>
                 <Header texto={'Lista de productos'}/>
-                <ProductList setProductos={setProductos} setModo={setModo} productos={productos} setProductoActual={setProductoActual}/>
+                <ProductList setProductos={setProductos} setModo={setModo} productos={productos} setProductoActual={setProductoActual} deleteProducto={deleteProducto} />
               </div>
               )
           }
