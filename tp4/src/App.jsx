@@ -41,7 +41,7 @@ function App() {
             default: return(
               <div>
                 <Header texto={'Lista de productos'}/>
-                <ProductList setModo={setModo} productos={productos} setProductoActual={setProductoActual}/>
+                <ProductList setProductos={setProductos} setModo={setModo} productos={productos} setProductoActual={setProductoActual}/>
               </div>
               )
           }

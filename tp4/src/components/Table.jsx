@@ -1,4 +1,4 @@
-function Table ({productos, setModo, setProductoActual}){
+function Table ({productos, setProductos, setModo, setProductoActual}){
     const style={
         width:'70%',
         borderCollapse:'collapse',
@@ -31,7 +31,7 @@ function Table ({productos, setModo, setProductoActual}){
                     <td>{prod.stock} unidades</td>
                     <td><a href='#' onClick={()=>{setModo('ver'); setProductoActual(prod);} }>Ver</a></td>
                     <td><a href='#' onClick={()=>{setModo('edit'); setProductoActual(prod);}}>Editar</a></td>
-                    <td><a href='#'>Eliminar</a></td>
+                    <td><a href='#' onClick={()=>{const nuevo=productos.filter(p=>p.id !== prod.id); setProductos(nuevo) }} >Eliminar</a></td>
                 </tr>
             ))}
         </tbody>
