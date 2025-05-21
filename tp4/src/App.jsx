@@ -27,6 +27,11 @@ function App() {
     setProductos(prev => [...prev, nuevoProducto]);
   }, [setProductos]);
 
+  const editProducto = useCallback((productoActualizado) => {
+    productoActualizado.minprice = productoActualizado.price * (1 - productoActualizado.disc / 100);
+    setProductos(prev => prev.map(p => p.id === productoActualizado.id ? productoActualizado : p));
+  }, [setProductos]);
+
   useEffect(()=>{
     console.log('Se modifico el arreglo de productos:', productos);
   }, [productos])
@@ -41,8 +46,9 @@ function App() {
         {(() => {
           switch (modo){
             case 'new': return <ProductForm modo={[modo,setModo]} producto={[producto, setProducto]} productos={[productos, setProductos]} 
-            productoActual={[productoActual, setProductoActual]} addProducto={addProducto}/>
-            case 'edit': return <ProductForm modo={[modo,setModo]} producto={[producto, setProducto]} productos={[productos, setProductos]} productoActual={[productoActual, setProductoActual]}/>
+            productoActual={[productoActual, setProductoActual]} addProducto={addProducto} editProducto={editProducto} />
+            case 'edit': return <ProductForm modo={[modo,setModo]} producto={[producto, setProducto]} productos={[productos, setProductos]} 
+            productoActual={[productoActual, setProductoActual]} addProducto={addProducto} editProducto={editProducto} />
             case 'buscar': return <SearchBar setModo={setModo} buscar={buscar} productos={productos}/>
             case 'ver': return (
             <div>

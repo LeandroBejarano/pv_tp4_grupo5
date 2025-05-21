@@ -26,9 +26,7 @@ function ProductForm (props){
             if (productoActual.desc.trim()==="" || productoActual.price.trim()==="" || productoActual.disc.trim()==="" || productoActual.stock.trim()==="")
                 alert ('Error: no puede vaciar los campos de un producto existente');
             else{
-                productoActual.minprice=productoActual.price*(1-productoActual.disc/100);
-                const nuevos = productos.map(p => (p.id === productoActual.id ? productoActual : p));
-                setProductos (nuevos);
+                props.editProducto(productoActual);
                 alert('Producto editado');
                 setModo('list');
             }
