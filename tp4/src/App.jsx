@@ -8,7 +8,7 @@ import ProductList from './components/ProductList'
 import ProductItem from './components/ProductItem'
 
 function App() {
-  const [productoActual, setProductoActual] = useState()
+  const [productoActual, setProductoActual] = useState(null)
   const [buscar, setBuscar] = useState('');
   const [producto, setProducto] = useState({
     id: '',
@@ -30,7 +30,8 @@ function App() {
       <div className="main-content">  
         {(() => {
           switch (modo){
-            case 'new': return <ProductForm setModo={setModo} producto={[producto, setProducto]} productos={[productos, setProductos]}/>
+            case 'new': return <ProductForm modo={[modo,setModo]} producto={[producto, setProducto]} productos={[productos, setProductos]} productoActual={[productoActual, setProductoActual]}/>
+            case 'edit': return <ProductForm modo={[modo,setModo]} producto={[producto, setProducto]} productos={[productos, setProductos]} productoActual={[productoActual, setProductoActual]}/>
             case 'buscar': return <SearchBar setModo={setModo} buscar={buscar} productos={productos}/>
             case 'ver': return (
             <div>
