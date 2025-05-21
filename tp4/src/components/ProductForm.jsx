@@ -13,17 +13,15 @@ function ProductForm (props){
         marginBottom: '10px'
     }
 
-    const addProducto = () =>{
+    const handleSubmit = () =>{
         if (modo === 'new')
             if (producto.desc.trim()==="" || producto.price.trim()==="" ||producto.disc.trim()==="" ||producto.stock.trim()==="")
                 alert ('Error: llene todos los campos y vuelva a intentarlo');
             else{
-                producto.id=Date.now();
-                producto.minprice=producto.price*(1-producto.disc/100);
-                alert ('Producto agregado');
-                setProductos([...productos,producto]);
-                setProducto({desc:'', disc:'', stock:'', price:''});
-            }
+                    props.addProducto(producto);
+                    setProducto({ desc: "", disc: "", stock: "", price: "" });
+                    alert ('Producto agregado')
+                }
         else{
             if (productoActual.desc.trim()==="" || productoActual.price.trim()==="" || productoActual.disc.trim()==="" || productoActual.stock.trim()==="")
                 alert ('Error: no puede vaciar los campos de un producto existente');
@@ -50,7 +48,7 @@ function ProductForm (props){
                     <input style={inputStyle} type='number' value={producto.price} placeholder='Precio unitario' onChange={(e)=>setProducto({...producto, price: e.target.value})}/>
                     <input style={inputStyle} type='number' value={producto.disc} placeholder='Descuento. Ej: 25' onChange={(e)=>setProducto({...producto, disc: e.target.value})}/>
                     <input style={inputStyle} type='number' value={producto.stock} placeholder='Stock' onChange={(e)=>setProducto({...producto, stock: e.target.value})}/>
-                    <button onClick={addProducto} >Agregar Producto</button> <br></br>
+                    <button onClick={handleSubmit} >Agregar Producto</button> <br></br>
                 </div>
                 )
                 case 'edit': return(
@@ -61,7 +59,7 @@ function ProductForm (props){
                     <input style={inputStyle} type='number' value={productoActual.price} placeholder='Precio unitario' onChange={(e)=> setProductoActual({...productoActual, price: e.target.value })}/>
                     <input style={inputStyle} type='number' value={productoActual.disc} placeholder='Descuento' onChange={(e)=> setProductoActual({...productoActual, disc: e.target.value })}/>
                     <input style={inputStyle} type='number' value={productoActual.stock} placeholder='Stock' onChange={(e)=> setProductoActual({...productoActual, stock: e.target.value })}/>
-                    <button onClick={addProducto} >Guardar Cambios</button>
+                    <button onClick={handleSubmit} >Guardar Cambios</button>
                 </div>
                 )
             }

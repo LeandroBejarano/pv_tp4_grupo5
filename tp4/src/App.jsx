@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, useEffect, useCallback } from 'react'
 import Header from './components/Header'
 import ProductForm from './components/ProductForm'
 import NavBar from './components/NavBar'
@@ -6,7 +6,6 @@ import SearchBar from './components/SearchBar'
 import './index.css';
 import ProductList from './components/ProductList'
 import ProductItem from './components/ProductItem'
-import {useEffect} from 'react'
 
 function App() {
   const [productoActual, setProductoActual] = useState(null)
@@ -22,6 +21,12 @@ function App() {
   const [productos, setProductos] = useState([]);
   const [modo, setModo] = useState('list');
   
+  const addProducto = useCallback((nuevoProducto) => {
+    nuevoProducto.id = Date.now();
+    nuevoProducto.minprice = nuevoProducto.price * (1 - nuevoProducto.disc / 100);
+    setProductos(prev => [...prev, nuevoProducto]);
+  }, [setProductos]);
+
   useEffect(()=>{
     console.log('Se modifico el arreglo de productos:', productos);
   }, [productos])
@@ -35,7 +40,8 @@ function App() {
       <div className="main-content">  
         {(() => {
           switch (modo){
-            case 'new': return <ProductForm modo={[modo,setModo]} producto={[producto, setProducto]} productos={[productos, setProductos]} productoActual={[productoActual, setProductoActual]}/>
+            case 'new': return <ProductForm modo={[modo,setModo]} producto={[producto, setProducto]} productos={[productos, setProductos]} 
+            productoActual={[productoActual, setProductoActual]} addProducto={addProducto}/>
             case 'edit': return <ProductForm modo={[modo,setModo]} producto={[producto, setProducto]} productos={[productos, setProductos]} productoActual={[productoActual, setProductoActual]}/>
             case 'buscar': return <SearchBar setModo={setModo} buscar={buscar} productos={productos}/>
             case 'ver': return (
