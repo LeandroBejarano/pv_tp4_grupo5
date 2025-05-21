@@ -62,7 +62,7 @@ function App() {
             default: return(
               <div>
                 <Header texto={'Lista de productos'}/>
-                <ProductList setProductos={setProductos} setModo={setModo} productos={productos} setProductoActual={setProductoActual} deleteProducto={deleteProducto} />
+                <ProductList setModo={setModo} productos={productos} setProductoActual={setProductoActual} deleteProducto={deleteProducto} />
               </div>
               )
           }

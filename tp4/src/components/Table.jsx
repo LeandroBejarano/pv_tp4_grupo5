@@ -1,4 +1,4 @@
-function Table ({productos, setProductos, setModo, setProductoActual, deleteProducto}){
+function Table ({productos, setModo, setProductoActual, deleteProducto}){
     const style={
         width:'70%',
         borderCollapse:'collapse',
