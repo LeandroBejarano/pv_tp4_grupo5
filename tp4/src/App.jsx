@@ -6,6 +6,7 @@ import SearchBar from './components/SearchBar'
 import './index.css';
 import ProductList from './components/ProductList'
 import ProductItem from './components/ProductItem'
+import {useEffect} from 'react'
 
 function App() {
   const [productoActual, setProductoActual] = useState(null)
@@ -20,6 +21,10 @@ function App() {
   });
   const [productos, setProductos] = useState([]);
   const [modo, setModo] = useState('list');
+  
+  useEffect(()=>{
+    console.log('Se modifico el arreglo de productos:', productos);
+  }, [productos])
 
   return (
     <div className="app-container">  
